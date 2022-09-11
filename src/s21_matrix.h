@@ -6,15 +6,13 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define TRUE 1   // SUCCESS
-#define FALSE 0  // FAILURE
-
-#define SUCCESS TRUE
-#define FAILURE FALSE
+#define TRUE 1
+#define FALSE 0
 
 #define OK 0
 #define INCORRECT_MATRIX 1
 #define CALCULATION_ERROR 2
+#define MEMORY_ERROR 3
 
 typedef struct matrix_struct {
   double **matrix;

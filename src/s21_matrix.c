@@ -14,7 +14,7 @@ int s21_create_matrix(int rows, int columns, matrix_t *result) {
     if (result->matrix) {
       fill_matrix_zero(result);
     } else {
-      error_code = INCORRECT_MATRIX;
+      error_code = MEMORY_ERROR;
       free_matrix(rows, result->matrix);
     }
   }
