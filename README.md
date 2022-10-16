@@ -18,7 +18,7 @@ The library supports the following operations:
  ## Note:
  - the matrix is a ***matrix_t*** structure containing a pointer to a ***2-dimensional array*** of doubles, int ***size_Y***, int ***size_X***;
  - the library contains a number of additional helper functions written primarily for testing purposes;
- - the library has been tested with valgrind (no leaks);
+ - the library has been tested with valgrind (**no leaks**);
  - unit tests cover **more than 90%** of each function;
- - memory allocation happens **INSIDE** the creation method, so allocationg memory for a matrix before calling the creationg method will cause a memory leak;
- - resizing matrices is unsupported, and manually changing the size of a matrix that's already been allocated is unadvised as it will cause a memory leak as well.
+ - (!) memory allocation happens INSIDE the creation method, so allocationg memory for a matrix before calling the creation method will cause a memory leak;
+ - (!) resizing matrices is unsupported, and manually changing the size of a matrix that's already been allocated is unadvised as it will cause a memory leak as well.
