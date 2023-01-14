@@ -75,7 +75,7 @@ gcov_report: $(BUILDDIR_TESTS)/$(OUTNAME_TESTS)
 .PHONY : gcov_report
 
 style: $(SOURCES_CPP)
-	cp utils/".clang-format" ".clang-format"
+	cp materials/".clang-format" ".clang-format"
 	clang-format -i src/*.cc
 	clang-format -i src/*.h
 	clang-format -n src/*.cc
