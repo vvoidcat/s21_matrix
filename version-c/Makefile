@@ -4,8 +4,8 @@ CC = gcc -g -Wall -Werror -Wextra -std=c11
 SOURCES_LIB = $(TMPDIR)/matrix_lib.o $(TMPDIR)/matrix_helper_lib.o src/s21_matrix.h
 SOURCES_TEST = $(TMPDIR)/matrix_tests.o $(TMPDIR)/matrix_helper_tests.o src/s21_matrix.h
 TMPDIR = tmp
-COVDIR = unit_tests/coverage
-OUTNAME = "tests"
+COVDIR = unit-tests/coverage
+OUTNAME = "test.out"
 
 ifeq ($(UNAME),Darwin)
 	FLAGSS = -lcheck -lm -lpthread -fprofile-arcs
@@ -20,7 +20,7 @@ all: cleanall build clean
 start:
 	if ! [ -d "$(TMPDIR)" ]; then mkdir $(TMPDIR); fi
 
-build: s21_matrix.a test
+build: s21_matrix.a
 
 rebuild: all
 
@@ -31,10 +31,11 @@ gcov_report:
 	gcovr -g -k -r . --html --html-details -o $(COVDIR)/coverage_report.html
 	mv *.gcov $(TMPDIR)
 	@echo "-----------------------------"
+	open $(COVDIR)/coverage_report.html
 
-test: start unit_tests/s21_matrix_tests.c $(SOURCES_TEST)
+test: start unit-tests/s21_matrix_tests.c $(SOURCES_TEST)
 	rm -rf $(TMPDIR)/s21_matrix_tests*
-	$(CC) unit_tests/s21_matrix_tests.c $(SOURCES_TEST) $(FLAGSS) -o $(OUTNAME)
+	$(CC) unit-tests/s21_matrix_tests.c $(SOURCES_TEST) $(FLAGSS) -o $(OUTNAME)
 	@echo "-----------------------------"
 	./$(OUTNAME)
 	@echo "-----------------------------"
